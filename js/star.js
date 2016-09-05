@@ -1,6 +1,69 @@
+// fullpage
+ $(function() {
+        $('#fullpage').fullpage({
+            anchors: ["page1", "page2", "page3", "page4", "page5", "page6", "page7"],
+            afterLoad: function(anchorLink, index) {
+                /*console.log("afterLoad:anchorLink="+anchorLink+";index="+index);*/
+                if (index == 2) {
+                    $(".star1").addClass("star-up");
+                    $(".text-801").addClass("text-active");
+                }
+                if (index == 3) {
+                    $(".star2").addClass("star-up");
+                    $(".text-800").addClass("text-active");
+                }
+                if (index == 4) {
+                    $(".star3").addClass("star-up");
+                    $(".text-901").addClass("text-active");
+                }
+                if (index == 5) {
+                    $(".star4").addClass("star-up");
+                    $(".text-900").addClass("text-active");
+                }
+                if (index == 6) {
+                    $(".star5").addClass("star-up");
+                    $(".text-001").addClass("text-active");
+                }
+                if (index == 7) {
+                    $(".star6").addClass("star-up");
+                    $(".text-000").addClass("text-active");
+                }
+            },
+            onLeave: function(index, nextIndex, direction) {
+                if (index == 2) {
+                    $(".star1").removeClass("star-up");
+                    $(".text-801").removeClass("text-active");
+                }
+                if (index == 3) {
+                    $(".star2").removeClass("star-up");
+                    $(".text-800").removeClass("text-active");
+                }
+                if (index == 4) {
+                    $(".star3").removeClass("star-up");
+                    $(".text-901").removeClass("text-active");
+                }
+                if (index == 5) {
+                    $(".star4").removeClass("star-up");
+                    $(".text-900").removeClass("text-active");
+                }
+                if (index == 6) {
+                    $(".star5").removeClass("star-up");
+                    $(".text-001").removeClass("text-active");
+                }
+                if (index == 7) {
+                    $(".star6").removeClass("star-up");
+                    $(".text-000").removeClass("text-active");
+                }
+
+            }
+
+        });
+    });
+
+
+// 表格
 $(function() {
         $('#container1').highcharts({
-
                 chart: {
                         type: 'bar',
                         style: {
@@ -42,7 +105,8 @@ $(function() {
                         min: 0,
                         title: {
                                 // text: '明星',
-                                align: 'high'
+                                align: 'high',
+                                text:null,
                         },
                         labels: {
                                 enabled: false
@@ -70,12 +134,12 @@ $(function() {
                 },
                 legend: {
                         layout: 'vertical',
-                        align: 'right',
+                        align: 'center',
                         verticalAlign: 'bottom',
                         x: 0,
                         y: 0,
-                        floating: true,
-                        backgroundColor: '#0A0A0A',
+                        floating: false,
+                        backgroundColor: null,
                         itemStyle: {
                                 color: '#FFFFFF',
                                 fontWeight: 'normal'
@@ -87,7 +151,7 @@ $(function() {
                 credits: {
                         enabled: false
                 },
-                colors: ["#FFF24A"], //柱形图颜色
+                colors: ["#FF8000"], //柱形图颜色
                 series: [{
                         name: '知名度*喜爱度*品质',
                         data: [22.4, 20.8, 20.4, 15.4, 15.2, 15.1, 12.8, 11.6, 10.5, 8.4],
@@ -138,7 +202,8 @@ $(function() {
                         min: 0,
                         title: {
                                 // text: '明星',
-                                align: 'high'
+                                align: 'high',
+                                text:null,
                         },
                         labels: {
                                 enabled: false
@@ -166,12 +231,12 @@ $(function() {
                 },
                 legend: {
                         layout: 'vertical',
-                        align: 'right',
+                        align: 'center',
                         verticalAlign: 'bottom',
                         x: 0,
                         y: 0,
-                        floating: true,
-                        backgroundColor: '#0A0A0A',
+                        floating: false,
+                        backgroundColor: null,
                         itemStyle: {
                                 color: '#FFFFFF',
                                 fontWeight: 'normal'
@@ -183,7 +248,7 @@ $(function() {
                 credits: {
                         enabled: false
                 },
-                colors: ["#FFF24A"], //柱形图颜色
+                colors: ["#FF8000"], //柱形图颜色
                 series: [{
                         name: '知名度*喜爱度*品质',
                         data: [33.8, 27, 16.5, 15.4, 13.3, 12, 10.7, 10, 9.7, 8.8],
@@ -236,7 +301,8 @@ $(function() {
                         min: 0,
                         title: {
                                 // text: '明星',
-                                align: 'high'
+                                align: 'high',
+                                text:null,
                         },
                         labels: {
                                 enabled: false
@@ -264,12 +330,12 @@ $(function() {
                 },
                 legend: {
                         layout: 'vertical',
-                        align: 'right',
+                        align: 'center',
                         verticalAlign: 'bottom',
                         x: 0,
                         y: 0,
-                        floating: true,
-                        backgroundColor: '#0A0A0A',
+                        floating: false,
+                        backgroundColor: null,
                         itemStyle: {
                                 color: '#FFFFFF',
                                 fontWeight: 'normal'
@@ -331,7 +397,8 @@ $(function() {
                         min: 0,
                         title: {
                                 // text: '明星',
-                                align: 'high'
+                                align: 'high',
+                                text:null,
                         },
                         labels: {
                                 enabled: false
@@ -359,12 +426,12 @@ $(function() {
                 },
                 legend: {
                         layout: 'vertical',
-                        align: 'right',
+                        align: 'center',
                         verticalAlign: 'bottom',
                         x: 0,
                         y: 0,
-                        floating: true,
-                        backgroundColor: '#0A0A0A',
+                        floating: false,
+                        backgroundColor: null,
                         itemStyle: {
                                 color: '#FFFFFF',
                                 fontWeight: 'normal'
@@ -426,7 +493,8 @@ categories: ['周杰伦','Angelababy','胡歌','鹿晗','邓超','杨幂','李�
                         min: 0,
                         title: {
                                 // text: '明星',
-                                align: 'high'
+                                align: 'high',
+                                text:null,
                         },
                         labels: {
                                 enabled: false
@@ -454,12 +522,12 @@ categories: ['周杰伦','Angelababy','胡歌','鹿晗','邓超','杨幂','李�
                 },
                 legend: {
                         layout: 'vertical',
-                        align: 'right',
+                        align: 'center',
                         verticalAlign: 'bottom',
                         x: 0,
                         y: 0,
-                        floating: true,
-                        backgroundColor: '#0A0A0A',
+                        floating: false,
+                        backgroundColor: null,
                         itemStyle: {
                                 color: '#FFFFFF',
                                 fontWeight: 'normal'
@@ -520,7 +588,8 @@ categories: ['鹿晗','吴亦凡','Angelababy','张艺兴','范冰冰','李易�
                         min: 0,
                         title: {
                                 // text: '明星',
-                                align: 'high'
+                                align: 'high',
+                                text:null,
                         },
                         labels: {
                                 enabled: false
@@ -548,12 +617,12 @@ categories: ['鹿晗','吴亦凡','Angelababy','张艺兴','范冰冰','李易�
                 },
                 legend: {
                         layout: 'vertical',
-                        align: 'right',
+                        align: 'center',
                         verticalAlign: 'bottom',
                         x: 0,
                         y: 0,
-                        floating: true,
-                        backgroundColor: '#0A0A0A',
+                        floating: false,
+                        backgroundColor: null,
                         itemStyle: {
                                 color: '#FFFFFF',
                                 fontWeight: 'normal'
