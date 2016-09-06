@@ -1,64 +1,101 @@
-// fullpage
- $(function() {
-        $('#fullpage').fullpage({
-            anchors: ["page1", "page2", "page3", "page4", "page5", "page6", "page7"],
-            afterLoad: function(anchorLink, index) {
-                /*console.log("afterLoad:anchorLink="+anchorLink+";index="+index);*/
-                if (index == 2) {
-                    $(".star1").addClass("star-up");
-                    $(".text-801").addClass("text-active");
+// 控制音乐播放
+$(function() {
+        $('.audio-img').on('click', function() {
+                if ($('.audio-music').get(0).paused) {
+                        $('.audio-music').get(0).play();
+                        $(this).addClass('rotate');
+                        $(this).removeClass('stop');
+                        $('.audio-stop').removeClass('stop-show');
+                        return;
                 }
-                if (index == 3) {
-                    $(".star2").addClass("star-up");
-                    $(".text-800").addClass("text-active");
-                }
-                if (index == 4) {
-                    $(".star3").addClass("star-up");
-                    $(".text-901").addClass("text-active");
-                }
-                if (index == 5) {
-                    $(".star4").addClass("star-up");
-                    $(".text-900").addClass("text-active");
-                }
-                if (index == 6) {
-                    $(".star5").addClass("star-up");
-                    $(".text-001").addClass("text-active");
-                }
-                if (index == 7) {
-                    $(".star6").addClass("star-up");
-                    $(".text-000").addClass("text-active");
-                }
-            },
-            onLeave: function(index, nextIndex, direction) {
-                if (index == 2) {
-                    $(".star1").removeClass("star-up");
-                    $(".text-801").removeClass("text-active");
-                }
-                if (index == 3) {
-                    $(".star2").removeClass("star-up");
-                    $(".text-800").removeClass("text-active");
-                }
-                if (index == 4) {
-                    $(".star3").removeClass("star-up");
-                    $(".text-901").removeClass("text-active");
-                }
-                if (index == 5) {
-                    $(".star4").removeClass("star-up");
-                    $(".text-900").removeClass("text-active");
-                }
-                if (index == 6) {
-                    $(".star5").removeClass("star-up");
-                    $(".text-001").removeClass("text-active");
-                }
-                if (index == 7) {
-                    $(".star6").removeClass("star-up");
-                    $(".text-000").removeClass("text-active");
-                }
+                $('.audio-music').get(0).pause();
+                $(this).removeClass('rotate');
+                $(this).addClass('stop');
+                $('.audio-stop').addClass('stop-show');
+                // $('.audio-music').get(0).pause(); //pause和play是原生的dom函数，必须使用get0,获取原声的dom元素
+        });
 
-            }
+        $('.audio-stop').on('click', function() {
+                if ($('.audio-music').get(0).paused) {
+                        $('.audio-music').get(0).play();
+                        $('.audio-img').addClass('rotate');
+                        $('.audio-img').removeClass('stop');
+                        $('.audio-stop').removeClass('stop-show');
+                        return;
+                }
+                $('.audio-music').get(0).pause();
+                $('.audio-img').removeClass('rotate');
+                $('.audio-img').addClass('stop');
+                $('.audio-stop').addClass('stop-show');
+                // $('.audio-music').get(0).pause(); //pause和play是原生的dom函数，必须使用get0,获取原声的dom元素
+        });
+
+
+});
+//
+//
+//
+
+// fullpage
+$(function() {
+        $('#fullpage').fullpage({
+                anchors: ["page1", "page2", "page3", "page4", "page5", "page6", "page7"],
+                afterLoad: function(anchorLink, index) {
+                        if (index == 2) {
+                                $(".star1").addClass("star-up");
+                                $(".text-801").addClass("text-active");
+                        }
+                        if (index == 3) {
+                                $(".star2").addClass("star-up");
+                                $(".text-800").addClass("text-active");
+                        }
+                        if (index == 4) {
+                                $(".star3").addClass("star-up");
+                                $(".text-901").addClass("text-active");
+                        }
+                        if (index == 5) {
+                                $(".star4").addClass("star-up");
+                                $(".text-900").addClass("text-active");
+                        }
+                        if (index == 6) {
+                                $(".star5").addClass("star-up");
+                                $(".text-001").addClass("text-active");
+                        }
+                        if (index == 7) {
+                                $(".star6").addClass("star-up");
+                                $(".text-000").addClass("text-active");
+                        }
+                },
+                onLeave: function(index, nextIndex, direction) {
+                        if (index == 2) {
+                                $(".star1").removeClass("star-up");
+                                $(".text-801").removeClass("text-active");
+                        }
+                        if (index == 3) {
+                                $(".star2").removeClass("star-up");
+                                $(".text-800").removeClass("text-active");
+                        }
+                        if (index == 4) {
+                                $(".star3").removeClass("star-up");
+                                $(".text-901").removeClass("text-active");
+                        }
+                        if (index == 5) {
+                                $(".star4").removeClass("star-up");
+                                $(".text-900").removeClass("text-active");
+                        }
+                        if (index == 6) {
+                                $(".star5").removeClass("star-up");
+                                $(".text-001").removeClass("text-active");
+                        }
+                        if (index == 7) {
+                                $(".star6").removeClass("star-up");
+                                $(".text-000").removeClass("text-active");
+                        }
+
+                }
 
         });
-    });
+});
 
 
 // 表格
@@ -106,7 +143,7 @@ $(function() {
                         title: {
                                 // text: '明星',
                                 align: 'high',
-                                text:null,
+                                text: null,
                         },
                         labels: {
                                 enabled: false
@@ -203,7 +240,7 @@ $(function() {
                         title: {
                                 // text: '明星',
                                 align: 'high',
-                                text:null,
+                                text: null,
                         },
                         labels: {
                                 enabled: false
@@ -302,7 +339,7 @@ $(function() {
                         title: {
                                 // text: '明星',
                                 align: 'high',
-                                text:null,
+                                text: null,
                         },
                         labels: {
                                 enabled: false
@@ -398,7 +435,7 @@ $(function() {
                         title: {
                                 // text: '明星',
                                 align: 'high',
-                                text:null,
+                                text: null,
                         },
                         labels: {
                                 enabled: false
@@ -476,7 +513,8 @@ $(function() {
                         // text: 'Source: Wikipedia.org'
                 },
                 xAxis: {
-categories: ['周杰伦','Angelababy','胡歌','鹿晗','邓超','杨幂','李易峰','刘亦菲','范冰冰','邓紫棋'],                        title: {
+                        categories: ['周杰伦', 'Angelababy', '胡歌', '鹿晗', '邓超', '杨幂', '李易峰', '刘亦菲', '范冰冰', '邓紫棋'],
+                        title: {
                                 text: null
                         },
                         labels: {
@@ -494,7 +532,7 @@ categories: ['周杰伦','Angelababy','胡歌','鹿晗','邓超','杨幂','李�
                         title: {
                                 // text: '明星',
                                 align: 'high',
-                                text:null,
+                                text: null,
                         },
                         labels: {
                                 enabled: false
@@ -542,7 +580,7 @@ categories: ['周杰伦','Angelababy','胡歌','鹿晗','邓超','杨幂','李�
                 colors: ["#15D9AA"], //柱形图颜色
                 series: [{
                         name: '知名度*喜爱度*品质',
-                       data: [9.1,6.8,5,4.3,3.4,2.8,2.1,1.8,1.8,1.7],
+                        data: [9.1, 6.8, 5, 4.3, 3.4, 2.8, 2.1, 1.8, 1.8, 1.7],
                 }]
         });
         // 0000000000000000000000000000000000000000000000000000000000000000000000
@@ -571,7 +609,8 @@ categories: ['周杰伦','Angelababy','胡歌','鹿晗','邓超','杨幂','李�
                         // text: 'Source: Wikipedia.org'
                 },
                 xAxis: {
-categories: ['鹿晗','吴亦凡','Angelababy','张艺兴','范冰冰','李易峰','谢娜','赵丽颖','邓超','何炅'],                        title: {
+                        categories: ['鹿晗', '吴亦凡', 'Angelababy', '张艺兴', '范冰冰', '李易峰', '谢娜', '赵丽颖', '邓超', '何炅'],
+                        title: {
                                 text: null
                         },
                         labels: {
@@ -589,7 +628,7 @@ categories: ['鹿晗','吴亦凡','Angelababy','张艺兴','范冰冰','李易�
                         title: {
                                 // text: '明星',
                                 align: 'high',
-                                text:null,
+                                text: null,
                         },
                         labels: {
                                 enabled: false

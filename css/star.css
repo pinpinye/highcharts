@@ -6,8 +6,27 @@ html {
         -webkit-text-size-adjust: none;
 }
 
+html,
+button,
+input,
+select,
+textarea {
+        font-family: "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif
+}
+
 body {
+        position: absolute;
         background-color: #0A0A0A;
+        height: 100%;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch
+}
+
+body,
+html {
+        height: 100%;
+        padding: 0;
+        margin: 0
 }
 
 
@@ -48,7 +67,7 @@ body {
 
 /* 圆形放大效果 */
 
-@keyframes circle-change {
+@-webkit-keyframes circle-change {
         0% {
                 transform: scale(0)
         }
@@ -87,7 +106,7 @@ body {
 
 /* 箭头闪动 */
 
-@keyframes arrow-change {
+@-webkit-keyframes arrow-change {
         0% {
                 opacity: .2;
         }
@@ -262,9 +281,82 @@ body {
 }
 
 
+/*播放音乐*/
+
+.musicWrap {
+        position: fixed;
+        top: 5px;
+        left: 70%;
+        z-index: 98;
+}
+
+.musicWrap audio {
+        visibility: hidden
+}
+
+.audio-img {
+        width: 25px;
+        z-index: 100;
+        /* visibility: hidden; */
+}
+
+.audio-stop {
+        position: relative;
+        width: 25px;
+        left: -30px;
+        visibility: hidden;
+}
+
+.musicWrap .stop-show {
+        visibility: visible;
+}
+
+audio:not([controls]) {
+        display: none;
+        height: 0
+}
+
+
+/* 音乐转动 */
+
+.musicWrap .stop {
+        visibility: hidden;
+}
+
+.musicWrap .rotate {
+        -webkit-animation: musicRotate 2s linear infinite;
+        -moz-animation: musicRotate 2s linear infinite;
+        animation: musicRotate 2s linear infinite;
+}
+
+
+/* 停止音乐动画 */
+
+.musicWrap .paused {
+        animation-play-state: paused;
+        -webkit-animation-play-state: paused;
+        -moz-animation-play-state: paused;
+        -o-animation-play-state: paused
+}
+
+
+/* 旋转动画 */
+
+@-webkit-keyframes musicRotate {
+        0% {
+                -webkit-transform: rotate(0);
+                transform: rotate(0)
+        }
+        100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg)
+        }
+}
+
+
 /* 图标页的动画 */
 
-@keyframes star-up {
+@-webkit-keyframes star-up {
         0% {
                 /* top: 45px; */
                 opacity: .5;
@@ -290,25 +382,25 @@ body {
 
 /* 描述文字动画 */
 
-@keyframes text-active {
+@-webkit-keyframes text-active {
         0% {
                 /* top: 45px; */
-                left: 0;
+                opacity: 0;
         }
         25% {
                 /* top: 0px; */
-                right: 20px;
+                opacity: .5;
         }
         50% {
-                /* top: 410px; */
-                left: -20px;
+                /* top: 45px; */
+                opacity: 1;
         }
         75% {
                 /* top: 0px; */
-                right: 20px;
+                opacity: 0;
         }
         100% {
-                /* top: 410px; */
-                left: 0;
+                /* top: 45px; */
+                opacity: 1;
         }
 }
